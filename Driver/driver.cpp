@@ -23,7 +23,7 @@ void Driver::Motor2(bool forward, unsigned int speed) //Controlador del motor de
 }
 
 //Métodos públicos
-Driver::Driver(unsigned short hi1, unsigned short lo1, unsigned short hi2, unsigned short lo2, unsigned short PWM1, unsigned short PWM2)
+Driver::Driver(unsigned char hi1, unsigned char lo1, unsigned char hi2, unsigned char lo2, unsigned char PWM1, unsigned char PWM2)
 {
     //Declarar pines
     motor1h = hi1;
