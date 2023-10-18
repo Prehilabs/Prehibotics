@@ -9,7 +9,7 @@ Currently, only the Driver library is disponible as other libraries are under de
 2. Open the Arduino IDE and press on the sketch menu
 ![Arduino/Sketch](https://imgur.com/a/RNb7Yh8)
 3. Go to Sketch>Include Library>Include .zip library
-![Arduino add lib](https://imgur.com/a/S2e9vK7)
+![Arduino add lib](https://imgur.com/4jNyYQ5)
 4. Select the file you have downloaded in step 1 and wait
 5. The output bash should show "Installed Library"
 6. Now you can use Prehibotics or any of its libraries!
@@ -106,5 +106,4 @@ Driver.Stop();
 ```
 
 ## License
-[GNU GPU v3]
-(https://choosealicense.com/licenses/gpl-3.0/, "License")
+[GNU GPU v3](https://choosealicense.com/licenses/gpl-3.0/)
