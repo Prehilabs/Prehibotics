@@ -1,5 +1,5 @@
 # Prehibotics
-![Prehilabs](https://imgur.com/a/UdpF92a.jpg)
+![Prehilabs](https://imgur.com/3X5ubj2.jpg)
 Prehibotics is a framework for Arduino UNO. Its main purpose is to simplify the  actions required to provide common algorithms to control a variety of simple robots  throughout different tools that permit getting information from sensors in an easier way, as  well as creating output facilities to ease the driving actions
 
 ## Instalation for Arduino IDE
@@ -7,7 +7,7 @@ Currently, only the Driver library is disponible as other libraries are under de
 
 1. Download the .zip file in the realease section of this repo or click [here](https://github.com/DIRM2705/Prehibotics/releases)
 2. Open the Arduino IDE and press on the sketch menu
-![Arduino/Sketch](https://imgur.com/a/RNb7Yh8.png)
+![Arduino/Sketch](https://imgur.com/fdywJM1.png)
 3. Go to Sketch>Include Library>Include .zip library
 ![Arduino add lib](https://imgur.com/4jNyYQ5.png)
 4. Select the file you have downloaded in step 1 and wait
