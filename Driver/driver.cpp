@@ -45,6 +45,7 @@ Driver::Driver(unsigned short hi1, unsigned short lo1, unsigned short hi2, unsig
 //Mover hacia adelante
 void Driver::Forward(unsigned int speed)
 {
+    speed %= 256;
     Motor1(true, speed);
     Motor2(true, speed);
 }
@@ -52,6 +53,7 @@ void Driver::Forward(unsigned int speed)
 //Mover hacia atrás
 void Driver::Backwards(unsigned int speed)
 {
+    speed %= 256;
     Motor1(false, speed);
     Motor2(false, speed);
 }
@@ -59,6 +61,7 @@ void Driver::Backwards(unsigned int speed)
 //Girar a la izquierda
 void Driver::Left(unsigned int speed)
 {
+    speed %= 256;
     Motor1(false, speed);
     Motor2(true, speed);
 }
@@ -66,6 +69,7 @@ void Driver::Left(unsigned int speed)
 //Girar a la derecha
 void Driver::Right(unsigned int speed)
 {
+    speed %= 256;
     Motor1(true, speed);
     Motor2(false, speed);
 }
