@@ -47,6 +47,7 @@ long Ultrasonic::GetRawTime()
 //Verificar si la distancia se encuentra dentro de un rango
 bool Ultrasonic::InRange(unsigned short begin, unsigned short end)
 {
+    if(begin > end) return false;
     long distance = Measure();
     return distance >= begin && distance <= end;
 }
