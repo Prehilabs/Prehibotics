@@ -32,8 +32,21 @@ long Ultrasonic::Measure() //Medir distancia
      * V del sonido = 34300 cm/s
      * 1s ---- 34300cm
      * xs ---- 34300x/1s
-     * 
      * Simplificando 34300 * time es la formula de la distancia en centimetros
     */
-    return 34300 * time;
+    return SOUNDSPEED * time;
+}
+
+//Devolver tiempo de eco
+long Ultrasonic::GetRawTime()
+{
+    StartTrigger();
+    return pulseIn(echo, HIGH);
+}
+
+//Verificar si la distancia se encuentra dentro de un rango
+bool Ultrasonic::InRange(unsigned short begin, unsigned short end)
+{
+    long distance = Measure();
+    return distance >= begin && distance <= end;
 }
