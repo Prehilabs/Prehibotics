@@ -1,5 +1,5 @@
-#ifndef ULTRASONIC_h
-#define ULTRASONIC_h
+#ifndef ULTRASONIC_H
+#define ULTRASONIC_H
 
 #include "arduino.h"
 
