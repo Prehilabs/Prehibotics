@@ -7,13 +7,13 @@ missing image
 ## Libraries
 The framework includes the following libraries. However, Prehibotics is still under developement. Thus further libraries will be added in a near future.
 * Driver
-    *A library to control two motors simultaneously using an H-bridge module or a L293D integrated circuit.
+    * A library to control two motors simultaneously using an H-bridge module or a L293D integrated circuit.
 * Ultrasonic
     * Allows to measure distances using the HC-SR04 ultrasonic module
 
 ## Usage
 ### Driver
-The library “driver.h”, allows programmers to control two motors simultaneously using an H-bridge. Therefore, it consists of five methods and a constructor defined in the upcoming paragraphs.
+The library driver.h, allows programmers to control two motors simultaneously using an H-bridge. Therefore, it consists of five methods and a constructor defined in the upcoming lines.
 #### Constructor
 ```cpp
 Driver(unsigned short hi1, unsigned short lo1, unsigned short hi2, unsigned short lo2, unsigned short PWM1, unsigned short PWM2);
