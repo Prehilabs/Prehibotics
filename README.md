@@ -1,9 +1,9 @@
 # Prehibotics
 ![Prehilabs](https://imgur.com/3X5ubj2.jpg)
-Prehibotics is a framework for Arduino UNO. Its main purpose is to simplify the  actions required to provide common algorithms to control a variety of simple robots  throughout different tools that permit getting information from sensors in an easier way, as  well as creating output facilities to ease the driving actions
+Prehibotics is a framework for Arduino UNO. Its main purpose is to simplify the  actions required to provide common algorithms to control a variety of simple robots implementing different tools that permit getting information from sensors, as  well as creating output facilities to ease the driving actions
 
 ## Instalation for Arduino IDE
-Currently, only the Driver library realease is available to download as other libraries are still under developement.
+Currently, only the Driver library release is available to download as other libraries are still under developement.
 
 1. Download the .zip file in the release section of this repo or click [here](https://github.com/DIRM2705/Prehibotics/releases)
 2. Open the Arduino IDE and press on the sketch menu
@@ -39,8 +39,8 @@ Driver(unsigned char hi1, unsigned char lo1, unsigned char hi2, unsigned char lo
 ### Methods
 
 #### Move forward
-* Turns to HIGH pins 1 and 3 of the H-Bridge
-* Turns to LOW pins 2 and 4 of the H-Bridge
+* Turns pins 1 and 3 of the H-Bridge to HIGH
+* Turns pins 2 and 4 of the H-Bridge to LOW
 * The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
 ```cpp
 //The speed paramater is a number between 0 and 255
@@ -48,16 +48,16 @@ Driver.Forward(unsigned char speed);
 ```
 
 #### Move backwards
-* Turns to HIGH pins 2 and 4 of the H-Bridge
-* Turns to LOW pins 1 and 3 of the H-Bridge
+* Turns pins 2 and 4 of the H-Bridge to HIGH
+* Turns pins 1 and 3 of the H-Bridge to LOW
 * The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
 ```cpp
 //The speed parameter is a number between 0 and 255
 Driver.Backwards(unsigned char speed);
 ```
 #### Rotate right
-* Turns to HIGH pins 1 and 4 of the H-Bridge
-* Turns to LOW pins 2 and 3 of the H-Bridge
+* Turns pins 1 and 4 of the H-Bridge to HIGH
+* Turns pins 2 and 3 of the H-Bridge to LOW
 * The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
 ```cpp
 //The speed parameter is a number between 0 and 255
@@ -65,8 +65,8 @@ Driver.Right(unsigned char speed);
 ```
 
 #### Rotate left
-* Turns to HIGH pins 2 and 3 of the H-Bridge
-* Turns to LOW pins 1 and 4 of the H-Bridge
+* Turns pins 2 and 3 of the H-Bridge to HIGH
+* Turns pins 1 and 4 of the H-Bridge to LOW
 * The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
 ```cpp
 //The speed parameter is a number between 0 and 255
@@ -74,7 +74,7 @@ Driver.Left(unsigned char speed);
 ```
 
 #### Stop
-* Turns to LOW pins 1-4 of the H-Bridge
+* Turns pins 1-4 of the H-Bridge to LOW
 * Writes an analog output of 0 for pins enable 1&2 and enable 3&4
 ```cpp
 Driver.Stop();
