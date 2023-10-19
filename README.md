@@ -22,7 +22,7 @@ The framework includes the following libraries. However, Prehibotics is still un
 * Ultrasonic
     * Allows to measure distances using the HC-SR04 ultrasonic module
 
-## Usage
+## About the libraries
 ### Driver
 The library driver.h, allows programmers to control two motors simultaneously using an H-bridge. Therefore, it consists of five methods and a constructor defined in the upcoming lines.
 #### Constructor
@@ -38,42 +38,45 @@ Driver(unsigned char hi1, unsigned char lo1, unsigned char hi2, unsigned char lo
 
 ### Methods
 
-#### Move Forward
+#### Move forward
 * Turns to HIGH pins 1 and 3 of the H-Bridge
 * Turns to LOW pins 2 and 4 of the H-Bridge
 * The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
 ```cpp
-Driver.Forward(unsigned char speed);
-
 //The speed paramater is a number between 0 and 255
+Driver.Forward(unsigned char speed);
 ```
 
+#### Move backwards
+* Turns to HIGH pins 2 and 4 of the H-Bridge
+* Turns to LOW pins 1 and 3 of the H-Bridge
+* The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
 ```cpp
-/*
- *Turns to HIGH pins 2 and 4 of the H-Bridge
- *Turns to LOW pins 1 and 3 of the H-Bridge
- *Writes an analog output between 0 and 255 in pins enable 1&2 and enable 3&4
-*/
+//The speed parameter is a number between 0 and 255
 Driver.Backwards(unsigned char speed);
-
-/*
- *Turns to HIGH pins 1 and 4 of the H-Bridge
- *Turns to LOW pins 2 and 3 of the H-Bridge
- *The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
-*/
+```
+#### Rotate right
+* Turns to HIGH pins 1 and 4 of the H-Bridge
+* Turns to LOW pins 2 and 3 of the H-Bridge
+* The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
+```cpp
+//The speed parameter is a number between 0 and 255
 Driver.Right(unsigned char speed);
+```
 
-/*
- *Turns to HIGH pins 2 and 3 of the H-Bridge
- *Turns to LOW pins 1 and 4 of the H-Bridge
- *The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
-*/
+#### Rotate left
+* Turns to HIGH pins 2 and 3 of the H-Bridge
+* Turns to LOW pins 1 and 4 of the H-Bridge
+* The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
+```cpp
+//The speed parameter is a number between 0 and 255
 Driver.Left(unsigned char speed);
+```
 
-/*
- *Turns to LOW pins 1-4 of the H-Bridge
- *Writes an analog output of 0 in pins enable 1&2 and enable 3&4
-*/
+#### Stop
+* Turns to LOW pins 1-4 of the H-Bridge
+* Writes an analog output of 0 for pins enable 1&2 and enable 3&4
+```cpp
 Driver.Stop();
 ```
 
