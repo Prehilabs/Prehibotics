@@ -27,13 +27,13 @@ The framework includes the following libraries. However, Prehibotics is still un
 The library driver.h, allows programmers to control two motors simultaneously using an H-bridge. Therefore, it consists of five methods and a constructor defined in the upcoming lines.
 #### Constructor
 ```cpp
-Driver(unsigned char hi1, unsigned char lo1, unsigned char hi2, unsigned char lo2, unsigned char PWM1, unsigned char PWM2);
 //hi1: H-Bridge input 1 pin
 //lo1: H-Bridge input 2 pin
 //hi2: H-Bridge input 3 pin
 //lo2: H-Bridge input 4 pin
 //PWM1: H-Bridge enable 1&2 pin
 //PWM2: H-Bridge enable 3&4 pin
+Driver(unsigned char hi1, unsigned char lo1, unsigned char hi2, unsigned char lo2, unsigned char PWM1, unsigned char PWM2);
 ```
 
 ### Methods
