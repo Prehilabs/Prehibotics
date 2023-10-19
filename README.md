@@ -43,7 +43,7 @@ Driver(unsigned char hi1, unsigned char lo1, unsigned char hi2, unsigned char lo
 * Turns to LOW pins 2 and 4 of the H-Bridge
 * The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
 ```cpp
-Driver.Forward(unsigned int speed);
+Driver.Forward(unsigned char speed);
 
 //The speed paramater is a number between 0 and 255
 ```
@@ -54,21 +54,21 @@ Driver.Forward(unsigned int speed);
  *Turns to LOW pins 1 and 3 of the H-Bridge
  *Writes an analog output between 0 and 255 in pins enable 1&2 and enable 3&4
 */
-Driver.Backwards(unsigned int speed);
+Driver.Backwards(unsigned char speed);
 
 /*
  *Turns to HIGH pins 1 and 4 of the H-Bridge
  *Turns to LOW pins 2 and 3 of the H-Bridge
  *The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
 */
-Driver.Right(unsigned int speed);
+Driver.Right(unsigned char speed);
 
 /*
  *Turns to HIGH pins 2 and 3 of the H-Bridge
  *Turns to LOW pins 1 and 4 of the H-Bridge
  *The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
 */
-Driver.Left(unsigned int speed);
+Driver.Left(unsigned char speed);
 
 /*
  *Turns to LOW pins 1-4 of the H-Bridge
