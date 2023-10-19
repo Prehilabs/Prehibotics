@@ -9,7 +9,7 @@ Currently, only the Driver library realease is available to download as other li
 2. Open the Arduino IDE and press on the sketch menu
 ![Arduino/Sketch](https://imgur.com/fdywJM1.png)
 3. Go to Sketch>Include Library>Include .zip library
-![Arduino add lib](https://imgur.com/4jNyYQ5.png)
+![Arduino add lib](https://imgur.com/Giok7I9.png)
 4. Select the file you have downloaded in step 1 and wait
 5. The output bash should show "Installed Library"
 6. Now you can use Prehibotics or any of its libraries!
