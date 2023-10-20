@@ -114,10 +114,16 @@ Ultrasonic library intends to adopt the use of the HC-SR04 module to measure dis
 ```
 
 #### Constants
-The library uses the sound speed constant, which equals 34300 centimeters per second
+The library uses the sound speed constant in centimeters per second and inches per second
+
+The speed of sound measured equals 34300 centimeters per second
 ```cpp
-    const unsigned int SOUNDSPEED = 34300;
+    const unsigned int CMSPEED = 34300;
 ```
+The speed of sound measured equals 13511.8110236 inches per second
+```cpp
+```
+
 #### Methods
 
 ##### Measure
