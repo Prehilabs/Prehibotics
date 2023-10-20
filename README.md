@@ -114,27 +114,28 @@ Ultrasonic library intends to adopt the use of the HC-SR04 module to measure dis
 ```
 
 #### Constants
-The library uses the sound speed constant in centimeters per second and inches per second
-
-The speed of sound measured equals 34300 centimeters per second
+The speed of sound equals 34300 centimeters per second
 ```cpp
     const unsigned int CMSPEED = 34300;
 ```
-The speed of sound measured equals 13511.8110236 inches per second
+The speed of sound equals 13511.8110236 inches per second
 ```cpp
+    const unsigned long INSPEED = 13511.8110236;
 ```
 
 #### Methods
 
 ##### Measure
-returns distance in centimeters in a long data type
+Returns the distance measured in centimeters
 ```cpp
+    //Returns long
     Ultrasonic.Measure();
 ```
 
 ##### Get echo time
-Triggers the sensor and returns the pulseIn time obtained by the echo input data type
+Triggers the sensor and returns the pulseIn time obtained by the echo input
 ```cpp
+    //Returns long
     Ultrasonic.GetRawTime();
 ```
 
