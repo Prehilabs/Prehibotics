@@ -7,7 +7,7 @@ Prehibotics is a project that aims to create and publish diferent libraries for 
 2. Open the Arduino IDE and press on the sketch menu
 ![Arduino/Sketch](https://imgur.com/fdywJM1.png)
 3. Go to Sketch>Include Library>Include .zip library
-![Arduino add lib](https://imgur.com/4jNyYQ5.png)
+![Arduino add lib](https://imgur.com/Giok7I9.png)
 4. Select the file you have downloaded in step 1 and wait
 5. The output bash should show "Installed Library"
 6. Now you can use Prehibotics or any of its libraries!
@@ -25,49 +25,56 @@ The framework includes the following libraries. However, Prehibotics is still un
 The library driver.h, allows programmers to control two motors simultaneously using an H-bridge. Therefore, it consists of five methods and a constructor defined in the upcoming lines.
 #### Constructor
 ```cpp
-Driver(unsigned short hi1, unsigned short lo1, unsigned short hi2, unsigned short lo2, unsigned short PWM1, unsigned short PWM2);
 //hi1: H-Bridge input 1 pin
 //lo1: H-Bridge input 2 pin
 //hi2: H-Bridge input 3 pin
 //lo2: H-Bridge input 4 pin
 //PWM1: H-Bridge enable 1&2 pin
 //PWM2: H-Bridge enable 3&4 pin
+Driver(unsigned char hi1, unsigned char lo1, unsigned char hi2, unsigned char lo2, unsigned char PWM1, unsigned char PWM2);
 ```
 
 #### Methods
+
+##### Move forward
+* Turns pins 1 and 3 of the H-Bridge to HIGH
+* Turns pins 2 and 4 of the H-Bridge to LOW
+* The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
 ```cpp
-/*
- *Turns to HIGH pins 1 and 3 of the H-Bridge
- *Turns to LOW pins 2 and 4 of the H-Bridge
- *The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
-*/
-Driver.Forward(unsigned int speed);
+//The speed paramater is a number between 0 and 255
+Driver.Forward(unsigned char speed);
+```
 
-/*
- *Turns to HIGH pins 2 and 4 of the H-Bridge
- *Turns to LOW pins 1 and 3 of the H-Bridge
- *Writes an analog output between 0 and 255 in pins enable 1&2 and enable 3&4
-*/
-Driver.Backwards(unsigned int speed);
+##### Move backwards
+* Turns pins 2 and 4 of the H-Bridge to HIGH
+* Turns pins 1 and 3 of the H-Bridge to LOW
+* The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
+```cpp
+//The speed parameter is a number between 0 and 255
+Driver.Backwards(unsigned char speed);
+```
+##### Rotate right
+* Turns pins 1 and 4 of the H-Bridge to HIGH
+* Turns pins 2 and 3 of the H-Bridge to LOW
+* The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
+```cpp
+//The speed parameter is a number between 0 and 255
+Driver.Right(unsigned char speed);
+```
 
-/*
- *Turns to HIGH pins 1 and 4 of the H-Bridge
- *Turns to LOW pins 2 and 3 of the H-Bridge
- *The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
-*/
-Driver.Right(unsigned int speed);
+##### Rotate left
+* Turns pins 2 and 3 of the H-Bridge to HIGH
+* Turns pins 1 and 4 of the H-Bridge to LOW
+* The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
+```cpp
+//The speed parameter is a number between 0 and 255
+Driver.Left(unsigned char speed);
+```
 
-/*
- *Turns to HIGH pins 2 and 3 of the H-Bridge
- *Turns to LOW pins 1 and 4 of the H-Bridge
- *The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
-*/
-Driver.Left(unsigned int speed);
-
-/*
- *Turns to LOW pins 1-4 of the H-Bridge
- *Writes an analog output of 0 in pins enable 1&2 and enable 3&4
-*/
+##### Stop
+* Turns pins 1-4 of the H-Bridge to LOW
+* Writes an analog output of 0 for pins enable 1&2 and enable 3&4
+```cpp
 Driver.Stop();
 ```
 
@@ -146,7 +153,7 @@ Ultrasonic library intends to adopt the use of the HC-SR04 module to measure dis
 ##### Verify if the distance is within a range
 * Measures the distance and returns wether it is within the range setted in the function or not
     * Both minimum and maximum parameters should be in centimeters
-* The function that return true can be defined as d >= minimum && d <= maximum, where d is the distance measured
+* The function that returns true can be defined as d >= minimum && d <= maximum, where d is the distance measured
 ```cpp
     //Returns bool
     //minimum: the smallest distance that will return true
