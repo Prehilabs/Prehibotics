@@ -144,7 +144,7 @@ Ultrasonic library intends to adopt the use of the HC-SR04 module to measure dis
 ```
 
 ##### Verify if the distance is within a range
-* Measures the distance and returns wether it is within the range setted in the function
+* Measures the distance and returns wether it is within the range setted in the function or not
     * Both minimum and maximum parameters should be in centimeters
 * The function that return true can be defined as d >= minimum && d <= maximum, where d is the distance measured
 ```cpp
