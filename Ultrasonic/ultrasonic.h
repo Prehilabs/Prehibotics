@@ -7,7 +7,8 @@ class Ultrasonic
         unsigned short trigger, echo;
         void StartTrigger();
     public:
-        const unsigned int SOUNDSPEED = 34300;
+        const unsigned int CMSPEED = 34300;
+        const unsigned int INSPEED = 13511.8110236;
         Ultrasonic(unsigned short t_pin, unsigned short e_pin);
         long Measure();
         long GetRawTime();

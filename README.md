@@ -119,9 +119,28 @@ The library uses the sound speed constant, which equals 34300 centimeters per se
     const unsigned int SOUNDSPEED = 34300;
 ```
 #### Methods
+
+##### Measure
+returns distance in centimeters in a long data type
 ```cpp
+    Ultrasonic.Measure();
 ```
 
+##### Get echo time
+Triggers the sensor and returns the pulseIn time obtained by the echo input data type
+```cpp
+    Ultrasonic.GetRawTime();
+```
+
+##### Verify if the distance is within a range
+Measures the distance and returns a boolean value, true if its within the range setted in the function
+
+The function that return true can be defined as d >= minimum && d <= maximum, where d is the distance measured
+```cpp
+    //minimum: the smallest distance that will return true
+    //maximum: the highest distance that will return true
+    Ultrasonic.InRange(unsigned short minimum, unsigned short maximum);
+```
 
 ## License
 [GNU GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)
