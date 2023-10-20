@@ -36,9 +36,9 @@ The library driver.h, allows programmers to control two motors simultaneously us
 Driver(unsigned char hi1, unsigned char lo1, unsigned char hi2, unsigned char lo2, unsigned char PWM1, unsigned char PWM2);
 ```
 
-### Methods
+#### Methods
 
-#### Move forward
+##### Move forward
 * Turns pins 1 and 3 of the H-Bridge to HIGH
 * Turns pins 2 and 4 of the H-Bridge to LOW
 * The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
@@ -47,7 +47,7 @@ Driver(unsigned char hi1, unsigned char lo1, unsigned char hi2, unsigned char lo
 Driver.Forward(unsigned char speed);
 ```
 
-#### Move backwards
+##### Move backwards
 * Turns pins 2 and 4 of the H-Bridge to HIGH
 * Turns pins 1 and 3 of the H-Bridge to LOW
 * The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
@@ -55,7 +55,7 @@ Driver.Forward(unsigned char speed);
 //The speed parameter is a number between 0 and 255
 Driver.Backwards(unsigned char speed);
 ```
-#### Rotate right
+##### Rotate right
 * Turns pins 1 and 4 of the H-Bridge to HIGH
 * Turns pins 2 and 3 of the H-Bridge to LOW
 * The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
@@ -64,7 +64,7 @@ Driver.Backwards(unsigned char speed);
 Driver.Right(unsigned char speed);
 ```
 
-#### Rotate left
+##### Rotate left
 * Turns pins 2 and 3 of the H-Bridge to HIGH
 * Turns pins 1 and 4 of the H-Bridge to LOW
 * The speed parameter sets the analog output for pins enable 1&2 and enable 3&4
@@ -73,14 +73,14 @@ Driver.Right(unsigned char speed);
 Driver.Left(unsigned char speed);
 ```
 
-#### Stop
+##### Stop
 * Turns pins 1-4 of the H-Bridge to LOW
 * Writes an analog output of 0 for pins enable 1&2 and enable 3&4
 ```cpp
 Driver.Stop();
 ```
 
-### Usage
+#### Usage
 ```cpp
     #include <driver.h>
 
