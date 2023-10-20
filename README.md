@@ -1,11 +1,9 @@
 # Prehibotics
 ![Prehilabs](https://imgur.com/3X5ubj2.jpg)
-Prehibotics is a framework for Arduino UNO. Its main purpose is to simplify the  actions required to provide common algorithms to control a variety of simple robots implementing different tools that permit getting information from sensors, as  well as creating output facilities to ease the driving actions
+Prehibotics is a project that aims to create and publish diferent libraries for Arduino UNO. Its main purpose is to simplify the  actions required to provide common algorithms to control a variety of simple robots  throughout different tools that permit getting information from sensors in an easier way, as  well as creating output facilities to ease the driving actions
 
 ## Instalation for Arduino IDE
-Currently, only the Driver library release is available to download as other libraries are still under developement.
-
-1. Download the .zip file in the release section of this repo or click [here](https://github.com/DIRM2705/Prehibotics/releases)
+1. Download the .zip file in the realease section of this repo or click [here](https://github.com/DIRM2705/Prehibotics/releases)
 2. Open the Arduino IDE and press on the sketch menu
 ![Arduino/Sketch](https://imgur.com/fdywJM1.png)
 3. Go to Sketch>Include Library>Include .zip library
@@ -110,6 +108,57 @@ Driver.Stop();
         car.stop();
         delay(5000);
     }
+```
+
+### Ultrasonic
+Ultrasonic library intends to adopt the use of the HC-SR04 module to measure distances. Easing the calculations needed for this purpose and, simultaneously, adding extra features as common methods implemented in the use of this sensor.
+
+#### Constructor
+```cpp
+    //trigger: the trigger pin of the HC-SR04 module
+    //echo:  the echo pin of the HC-SRO4 module 
+    Ultrasonic(unsigned short trigger, unsigned short echo)
+```
+
+#### Constants
+* The speed of sound equals 34300 centimeters per second
+```cpp
+    const unsigned int CMSPEED = 34300;
+```
+* The speed of sound equals 13511.8110236 inches per second
+```cpp
+    const unsigned long INSPEED = 13511.8110236;
+```
+
+#### Methods
+
+##### Measure
+* Returns the distance measured in centimeters
+```cpp
+    //Returns long
+    /*
+        If the cm parameter is true, the measure will be return in centimeters
+        otherwise the result will be returned in inches
+    */
+    Ultrasonic.Measure(bool cm = true);
+```
+
+##### Get echo time
+* Triggers the sensor and returns the pulseIn time obtained by the echo input
+```cpp
+    //Returns long
+    Ultrasonic.GetRawTime();
+```
+
+##### Verify if the distance is within a range
+* Measures the distance and returns wether it is within the range setted in the function or not
+    * Both minimum and maximum parameters should be in centimeters
+* The function that return true can be defined as d >= minimum && d <= maximum, where d is the distance measured
+```cpp
+    //Returns bool
+    //minimum: the smallest distance that will return true
+    //maximum: the highest distance that will return true
+    Ultrasonic.InRange(unsigned short minimum, unsigned short maximum);
 ```
 
 ## License

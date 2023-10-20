@@ -22,18 +22,34 @@ Ultrasonic::Ultrasonic(unsigned short t_pin, unsigned short e_pin) //Constructor
     pinMode(echo, INPUT);
 }
 
-long Ultrasonic::Measure() //Medir distancia
+long Ultrasonic::Measure(bool cm = true) //Medir distancia
 {
-    StartTrigger(); //Emitir pulso ultrasónico
-    long time = pulseIn(echo, HIGH); //Calcular tiempo de eco
+    long time = GetRawTime(); //Obtener tiempo de eco
     time *= 0.000001; //Convertir microsegundos a segundos
 
-    /*
-     * V del sonido = 34300 cm/s
-     * 1s ---- 34300cm
-     * xs ---- 34300x/1s
-     * 
-     * Simplificando 34300 * time es la formula de la distancia en centimetros
-    */
-    return 34300 * time;
+    //Si se necesita la distancia en cm
+    if(cm)
+    {
+        return CMSPEED * time; //Retornar distancia en cm
+    }
+    else
+    {
+        return INSPEED * time; //Retornar distancia en pulgadas
+    }
+    
+}
+
+//Devolver tiempo de eco
+long Ultrasonic::GetRawTime()
+{
+    StartTrigger();
+    return pulseIn(echo, HIGH);
+}
+
+//Verificar si la distancia se encuentra dentro de un rango
+bool Ultrasonic::InRange(unsigned short begin, unsigned short end)
+{
+    if(begin > end) return false;
+    long distance = Measure();
+    return distance >= begin && distance <= end;
 }
