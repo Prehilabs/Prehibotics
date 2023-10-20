@@ -1,10 +1,8 @@
 # Prehibotics
 ![Prehilabs](https://imgur.com/3X5ubj2.jpg)
-Prehibotics is a framework for Arduino UNO. Its main purpose is to simplify the  actions required to provide common algorithms to control a variety of simple robots  throughout different tools that permit getting information from sensors in an easier way, as  well as creating output facilities to ease the driving actions
+Prehibotics is a project that aims to create and publish diferent libraries for Arduino UNO. Its main purpose is to simplify the  actions required to provide common algorithms to control a variety of simple robots  throughout different tools that permit getting information from sensors in an easier way, as  well as creating output facilities to ease the driving actions
 
 ## Instalation for Arduino IDE
-Currently, only the Driver library realease is available to download as other libraries are still under developement.
-
 1. Download the .zip file in the realease section of this repo or click [here](https://github.com/DIRM2705/Prehibotics/releases)
 2. Open the Arduino IDE and press on the sketch menu
 ![Arduino/Sketch](https://imgur.com/fdywJM1.png)
@@ -22,7 +20,7 @@ The framework includes the following libraries. However, Prehibotics is still un
 * Ultrasonic
     * Allows to measure distances using the HC-SR04 ultrasonic module
 
-## Usage
+## About the libraries
 ### Driver
 The library driver.h, allows programmers to control two motors simultaneously using an H-bridge. Therefore, it consists of five methods and a constructor defined in the upcoming lines.
 #### Constructor
@@ -36,7 +34,7 @@ Driver(unsigned short hi1, unsigned short lo1, unsigned short hi2, unsigned shor
 //PWM2: H-Bridge enable 3&4 pin
 ```
 
-### Methods
+#### Methods
 ```cpp
 /*
  *Turns to HIGH pins 1 and 3 of the H-Bridge
@@ -73,7 +71,7 @@ Driver.Left(unsigned int speed);
 Driver.Stop();
 ```
 
-### Usage
+#### Usage
 ```cpp
     #include <driver.h>
 
@@ -104,6 +102,26 @@ Driver.Stop();
         delay(5000);
     }
 ```
+
+### Ultrasonic
+Ultrasonic library intends to adopt the use of the HC-SR04 module to measure distances. Easing the calculations needed for this purpose and, simultaneously, adding extra features as common methods implemented in the use of this sensor.
+
+#### Constructor
+```cpp
+    //trigger: the trigger pin of the HC-SR04 module
+    //echo:  the echo pin of the HC-SRO4 module 
+    Ultrasonic(unsigned short trigger, unsigned short echo)
+```
+
+#### Constants
+The library uses the sound speed constant, which equals 34300 centimeters per second
+```cpp
+    const unsigned int SOUNDSPEED = 34300;
+```
+#### Methods
+```cpp
+```
+
 
 ## License
 [GNU GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)
