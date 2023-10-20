@@ -114,11 +114,11 @@ Ultrasonic library intends to adopt the use of the HC-SR04 module to measure dis
 ```
 
 #### Constants
-The speed of sound equals 34300 centimeters per second
+* The speed of sound equals 34300 centimeters per second
 ```cpp
     const unsigned int CMSPEED = 34300;
 ```
-The speed of sound equals 13511.8110236 inches per second
+* The speed of sound equals 13511.8110236 inches per second
 ```cpp
     const unsigned long INSPEED = 13511.8110236;
 ```
@@ -126,23 +126,27 @@ The speed of sound equals 13511.8110236 inches per second
 #### Methods
 
 ##### Measure
-Returns the distance measured in centimeters
+* Returns the distance measured in centimeters
 ```cpp
     //Returns long
-    Ultrasonic.Measure();
+    /*
+        If the cm parameter is true, the measure will be return in centimeters
+        otherwise the result will be returned in inches
+    */
+    Ultrasonic.Measure(bool cm = true);
 ```
 
 ##### Get echo time
-Triggers the sensor and returns the pulseIn time obtained by the echo input
+* Triggers the sensor and returns the pulseIn time obtained by the echo input
 ```cpp
     //Returns long
     Ultrasonic.GetRawTime();
 ```
 
 ##### Verify if the distance is within a range
-Measures the distance and returns a boolean value, true if its within the range setted in the function
-
-The function that return true can be defined as d >= minimum && d <= maximum, where d is the distance measured
+* Measures the distance and returns a boolean value, true if its within the range setted in the function
+    * Both minimum and maximum parameters should be in centimeters
+* The function that return true can be defined as d >= minimum && d <= maximum, where d is the distance measured
 ```cpp
     //minimum: the smallest distance that will return true
     //maximum: the highest distance that will return true
