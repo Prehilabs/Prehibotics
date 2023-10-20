@@ -161,5 +161,52 @@ Ultrasonic library intends to adopt the use of the HC-SR04 module to measure dis
     Ultrasonic.InRange(unsigned short minimum, unsigned short maximum);
 ```
 
+#### Usage
+```cpp
+    //Import the library
+    #include<ultrasonic.h>
+
+    //Create ultrasonic object
+    Ultrasonic sensor(5,6);
+
+    void setup()
+    {
+        Serial.begin(9600);
+    }
+
+    void loop()
+    {
+        //Measure distance in centimeters
+        long cm = sensor.Measure();
+
+        //Measure distance in inches
+        long in = sensor.Measure(false);
+
+        //If the distance is between 5 and 20 centimeters
+        if(sensor.InRange(5, 20))
+        {
+            //Get the raw time
+            long time = sensor.GetRawTime();
+
+            //Print time and speeds
+            Serial.print("time: ");
+            Serial.print(time);
+            Serial.print(" Speed in CM: ");
+            Serial.print(sensor.CMSPEED);
+            Serial.print(" Speed in IN: ");
+            Serial.println(sensor.INSPEED);
+        }
+        else
+        {
+            //print distances
+
+            Serial.print("Distance in CM : ");
+            Serial.print(cm);
+            Serial.print(" Distance in IN: ");
+            Serial.println(in);
+        }
+    }
+```
+
 ## License
 [GNU GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)
