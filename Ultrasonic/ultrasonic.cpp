@@ -25,8 +25,6 @@ Ultrasonic::Ultrasonic(unsigned short t_pin, unsigned short e_pin) //Constructor
 long Ultrasonic::Measure() //Medir distancia
 {
     double time = GetRawTime(); //Obtener tiempo de eco
-    time *= 0.000001; //Convertir microsegundos a segundos
-
     return (speed * time)/2; //Retornar distancia    
 }
 

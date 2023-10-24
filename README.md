@@ -120,31 +120,21 @@ Ultrasonic library intends to adopt the use of the HC-SR04 module to measure dis
     Ultrasonic(unsigned short trigger, unsigned short echo)
 ```
 
-#### Constants
-* The speed of sound equals 34300 centimeters per second
-```cpp
-    const unsigned int CMSPEED = 34300;
-```
-* The speed of sound equals 13511.8110236 inches per second
-```cpp
-    const unsigned long INSPEED = 13511.8110236;
-```
-
 #### Methods
 
 ##### Measure
-* Returns the distance measured in centimeters
+* Returns the distance measured. For this purpose, it uses `Ultrasonic.speed` variable which equals 0.034 by default, however, it can be changed using the method `Ultrasonic.SetSpeed(double speed)`
 ```cpp
     //Returns long
     /*
         If the cm parameter is true, the measure will be return in centimeters
         otherwise the result will be returned in inches
     */
-    Ultrasonic.Measure(bool cm = true);
+    Ultrasonic.Measure();
 ```
 
 ##### Get echo time
-* Triggers the sensor and returns the pulseIn time obtained by the echo input
+* Triggers the sensor and returns the pulseIn time obtained by the echo input. By default, the pulseIn has a timeout of 2000 microseconds, however, this can be changed using the method `Ultrasonic.SetTimeout(long time)`
 ```cpp
     //Returns long
     Ultrasonic.GetRawTime();
@@ -161,10 +151,25 @@ Ultrasonic library intends to adopt the use of the HC-SR04 module to measure dis
     Ultrasonic.InRange(unsigned short minimum, unsigned short maximum);
 ```
 
+##### Change speed variable
+* Changes the internal variable `Ultrasonic.speed` to the value passed as a parameter
+```cpp
+    //speed: The value of the speed of sound that would be used to perform calculations
+    //Its default value is 0.034
+    Ultrasonic.SetSpeed(double speed);
+```
+##### Change timeout variable
+* Changes the internal variable `Ultrasonic.timeout` to the value passed as a parameter
+```cpp
+    //time: The timeout value used by pulseIn(pin, state, timeout) arduino method
+    //Its default value is 2000
+    Ultrasonic.SetTimeout(long time);
+```
+
 #### Usage
 ```cpp
     //Import the library
-    #include<ultrasonic.h>
+    #include <ultrasonic.h>
 
     //Create ultrasonic object
     Ultrasonic sensor(5,6);
@@ -172,38 +177,27 @@ Ultrasonic library intends to adopt the use of the HC-SR04 module to measure dis
     void setup()
     {
         Serial.begin(9600);
+        sensor.SetSpeed(0.034); //This can be ommited if you want to measure in cm
+        sensor.SetTimeout(2000); //This can be ommited if 2000 microseconds is enough timeout
     }
 
     void loop()
     {
-        //Measure distance in centimeters
-        long cm = sensor.Measure();
-
-        //Measure distance in inches
-        long in = sensor.Measure(false);
+        //Measure distance
+        long distance = sensor.Measure();
 
         //If the distance is between 5 and 20 centimeters
         if(sensor.InRange(5, 20))
         {
             //Get the raw time
             long time = sensor.GetRawTime();
-
-            //Print time and speeds
-            Serial.print("time: ");
-            Serial.print(time);
-            Serial.print(" Speed in CM: ");
-            Serial.print(sensor.CMSPEED);
-            Serial.print(" Speed in IN: ");
-            Serial.println(sensor.INSPEED);
+            Serial.println("In range");
         }
         else
         {
-            //print distances
-
-            Serial.print("Distance in CM : ");
-            Serial.print(cm);
-            Serial.print(" Distance in IN: ");
-            Serial.println(in);
+            //print distance
+            Serial.print("Distance: ");
+            Serial.println(distance);
         }
     }
 ```

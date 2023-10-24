@@ -5,7 +5,7 @@ class Ultrasonic
 {
     private:
         unsigned short trigger, echo;
-        double speed = 34300;
+        double speed = 0.034;
         unsigned int timeout = 20000;
         void StartTrigger();
     public:
