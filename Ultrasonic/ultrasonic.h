@@ -5,13 +5,15 @@ class Ultrasonic
 {
     private:
         unsigned short trigger, echo;
+        double speed = 34300;
+        unsigned int timeout = 20000;
         void StartTrigger();
     public:
-        const unsigned int CMSPEED = 34300;
-        const unsigned long INSPEED = 13511.8110236;
         Ultrasonic(unsigned short t_pin, unsigned short e_pin);
-        long Measure(bool cm);
+        long Measure();
         long GetRawTime();
+        void SetTimeout(long time);
+        void SetSpeed(double _speed);
         bool InRange(unsigned short begin, unsigned short end);
 };
 
