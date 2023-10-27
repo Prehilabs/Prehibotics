@@ -202,5 +202,20 @@ Ultrasonic library intends to adopt the use of the HC-SR04 module to measure dis
     }
 ```
 
+### Din
+Din stands for digital input, as the name suggest this library is used to manipulate digital inputs.
+It implements methods which allow to reduce code related to logic state changes.
+
+#### Constructor
+``` cpp
+    //pin: the arduino uno pin where you are willing to read the input
+    Din(unsigned char pin);
+```
+#### Methods
+##### Get input
+
+#### Usage
+####
+
 ## License
 [GNU GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)
