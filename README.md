@@ -203,7 +203,7 @@ Ultrasonic library intends to adopt the use of the HC-SR04 module to measure dis
 ```
 
 ### Din
-Din stands for digital input, as the name suggest this library is used to manipulate digital inputs.
+Din stands for digital input, as the name suggests this library is used to manipulate digital inputs.
 It implements methods which allow to reduce code related to logic state changes.
 
 #### Constructor
@@ -213,9 +213,61 @@ It implements methods which allow to reduce code related to logic state changes.
 ```
 #### Methods
 ##### Get input
+* Reads the pin and returns HIGH or LOW. It can be replaced by `digitalRead()` and will have the same effect
+``` cpp
+    //returns bool
+    //pin: the arduino uno pin where you are willing to read the input
+    Din.getInput();
+```
 
+##### Wait for change
+* There are two methods that wait until the state changes.
+* Firstly, `WaitUntilChange()` that will simply stop the program until the input changes from LOW to HIGH or viceversa
+``` cpp
+    Din.WaitUntilChange();
+```
+* Secondly, `WaitUntilChange(bool state)` this action will also stop the program. However, it waits for a specific action
+* Change from LOW to HIGH if `state` is HIGH.
+* Change from HIGH to LOW if `state` is LOW.
+``` cpp
+    //state: The final state that the input should register
+    Din.WaitUntilChange(bool state);
+```
 #### Usage
-####
+```cpp
+    //Import the library
+    #include <din.h>
+
+    //Create Din object
+    Din input(7);
+
+    void setup()
+    {
+        Serial.begin(9600);
+    }
+
+    void loop()
+    {
+        //get input
+        bool in = input.GetInput(); 
+
+        //Print read input
+        Serial.print("Registered input: ")
+        Serial.println(in);
+
+        //Wait until any change
+        input.WaitUntilChange();
+        Serial.println("Detected change")
+
+        //Wait until low to high change
+        input.WaitUntilChange(HIGH); 
+        Serial.println("LOW to HIGH");
+
+        //Wait until high to low change
+        input.WaitUntilChange(LOW);
+        Serial.println("HIGH to LOW");
+    }
+```
 
 ## License
 [GNU GPL-3.0](https://choosealicense.com/licenses/gpl-3.0/)
