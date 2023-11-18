@@ -1,5 +1,5 @@
 # Prehibotics
-![Prehilabs](https://imgur.com/3X5ubj2.jpg)
+![Prehilabs](https://imgur.com/OfcO9cA)
 Prehibotics is a project that aims to create and publish diferent libraries for Arduino UNO. Its main purpose is to simplify the  actions required to provide common algorithms to control a variety of simple robots  throughout different tools that permit getting information from sensors in an easier way, as  well as creating output facilities to ease the driving actions
 
 ## Instalation for Arduino IDE
