@@ -19,6 +19,8 @@ The framework includes the following libraries. However, Prehibotics is still un
     * A library to control two motors simultaneously using an H-bridge module or a L293D integrated circuit.
 * Ultrasonic
     * Allows to measure distances using the HC-SR04 ultrasonic module
+* Din
+    * Common algorithms used to manage digital inputs
 
 ## About the libraries
 ### Driver
