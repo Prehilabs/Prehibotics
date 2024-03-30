@@ -2,7 +2,7 @@
 #include "arduino.h"
 
 //Métodos privados
-void Driver::Motor1(bool forward, unsigned char speed) //Controlador del motor izquierdo
+void Driver::Motor1(bool forward, byte speed) //Controlador del motor izquierdo
 {
     //Determinar la dirección del giro
     digitalWrite(motor1h, forward);
@@ -12,7 +12,7 @@ void Driver::Motor1(bool forward, unsigned char speed) //Controlador del motor i
     analogWrite(speed1, speed);
 }
 
-void Driver::Motor2(bool forward, unsigned char speed) //Controlador del motor derecho
+void Driver::Motor2(bool forward, byte speed) //Controlador del motor derecho
 {
     //Determinar la dirección del giro
     digitalWrite(motor2h, forward);
@@ -23,7 +23,7 @@ void Driver::Motor2(bool forward, unsigned char speed) //Controlador del motor d
 }
 
 //Métodos públicos
-Driver::Driver(unsigned char hi1, unsigned char lo1, unsigned char hi2, unsigned char lo2, unsigned char PWM1, unsigned char PWM2)
+Driver::Driver(byte hi1, byte lo1, byte hi2, byte lo2, byte PWM1, byte PWM2)
 {
     //Declarar pines
     motor1h = hi1;
@@ -43,7 +43,7 @@ Driver::Driver(unsigned char hi1, unsigned char lo1, unsigned char hi2, unsigned
 }
 
 //Mover hacia adelante
-void Driver::Forward(unsigned char speed)
+void Driver::Forward(byte speed)
 {
     speed %= 256;
     Motor1(true, speed);
@@ -51,7 +51,7 @@ void Driver::Forward(unsigned char speed)
 }
 
 //Mover hacia atrás
-void Driver::Backwards(unsigned char speed)
+void Driver::Backwards(byte speed)
 {
     speed %= 256;
     Motor1(false, speed);
@@ -59,7 +59,7 @@ void Driver::Backwards(unsigned char speed)
 }
 
 //Girar a la izquierda
-void Driver::Left(unsigned char speed)
+void Driver::Left(byte speed)
 {
     speed %= 256;
     Motor1(false, speed);
@@ -67,7 +67,7 @@ void Driver::Left(unsigned char speed)
 }
 
 //Girar a la derecha
-void Driver::Right(unsigned char speed)
+void Driver::Right(byte speed)
 {
     speed %= 256;
     Motor1(true, speed);

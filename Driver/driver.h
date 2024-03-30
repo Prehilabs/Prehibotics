@@ -4,22 +4,22 @@
 class Driver
 {
     private:
-        unsigned char  motor1h, 
+        byte  motor1h, 
                         motor1l, 
                         motor2h, 
                         motor2l,
                         speed1,
                         speed2;
 
-        void Motor1(bool hpin, unsigned char speed);
-        void Motor2(bool hpin, unsigned char speed);
+        void Motor1(bool hpin, byte speed);
+        void Motor2(bool hpin, byte speed);
 
     public:
-        Driver(unsigned char hi1, unsigned char lo1, unsigned char hi2, unsigned char lo2, unsigned char PWM1, unsigned char PWM2);
-        void Forward(unsigned char speed);
-        void Backwards(unsigned char speed);
-        void Left(unsigned char speed);
-        void Right(unsigned char speed);
+        Driver(byte hi1, byte lo1, byte hi2, byte lo2, byte PWM1, byte PWM2);
+        void Forward(byte speed);
+        void Backwards(byte speed);
+        void Left(byte speed);
+        void Right(byte speed);
         void Stop();
     };
 
